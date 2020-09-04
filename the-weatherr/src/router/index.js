@@ -8,9 +8,9 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
-  }
-  // ,
+    component: Home,
+  },
+  // ,s
   // {
   //   path: "/about",
   //   name: "About",
@@ -23,7 +23,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  routes
+  routes,
 });
 
 export default router;

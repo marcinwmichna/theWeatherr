@@ -13,6 +13,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 body {
   background-color: #fbf4e4;
@@ -25,10 +26,10 @@ body {
   opacity: 80%;
   padding: 1em;
   font-size: 14px;
-  // height: 100vh;
+  height: 100%;
   // min-height: 100vh;
-  width: 100vw;
-  min-width: 360px;
+  // width: 100vw;
+  min-width: 260px;
 }
 @media (min-width: 576px) {
   #app {
@@ -37,8 +38,8 @@ body {
 }
 @media (min-width: 768px) {
   #app {
-    font-size: 22px;
-    padding: 2em;
+    font-size: 20px;
+    padding: 0;
   }
 }
 // #nav {

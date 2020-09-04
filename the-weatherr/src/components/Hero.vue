@@ -49,6 +49,7 @@ h4,
 h5 {
   margin: 0;
 }
+
 .hero__additional_wrap div img {
   width: 3em;
   height: 3em;
@@ -98,7 +99,7 @@ h5 {
   margin: auto;
 }
 .hero__temp h1 {
-  font-size: 7em;
+  font-size: 5.5em;
   justify-content: flex-end;
   margin: 0 1.5rem;
   /* padding-left: 0.2em; */
@@ -128,5 +129,10 @@ h5 {
 .hero__rain,
 .hero__humidity {
   padding: 1em 2em;
+}
+@media (min-width: 376px) {
+  .hero__temp h1 {
+    font-size: 8em;
+  }
 }
 </style>

@@ -39,9 +39,6 @@ export default {
   components: {
     LineChart,
   },
-  mounted() {
-    console.log(this.$ref);
-  },
 };
 </script>
 <style scoped>
