@@ -9,13 +9,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    count: 0,
-  },
-  mutations: {
-    increment(state) {
-      state.count++;
+    apikey: process.env.VUE_APP_API_KEY,
+    weather: {
+      city: null,
+      wind: null,
+      rain: null,
+      humidity: null,
     },
   },
+  mutations: {},
   actions: {},
   modules: {},
 });
