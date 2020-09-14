@@ -9,85 +9,76 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    COORDINATES_API_URL: "https://api.openweathermap.org/data/2.5/weather?q=",
-    WEATHER_API_URL:
+    BY_NAME_API_URL: "https://api.openweathermap.org/data/2.5/weather?q=",
+    BY_COORDINATES_API_URL:
       "https://api.openweathermap.org/data/2.5/onecall?exclude=minutely",
     apikey: process.env.VUE_APP_API_KEY,
     weather: {
-      city: {
-        pending: false,
-        status: false,
+      byCoordinates: {
+        lon: null,
+        lat: null,
         name: null,
-        wind: null,
-        rain: null,
-        humidity: null,
+        current: {},
+        hourly: [{}],
+        daily: [{}],
       },
-      coordinates: {
-        pending: false,
-        status: false,
-        name: null,
+      byName: {
+        name: "rzeszow",
         lon: null,
         lat: null,
       },
     },
   },
   mutations: {
-    SET_WEATHER_COORDINATES_DATA(state, data) {
-      state.weather.coordinates.lon = data.coord.lon;
-      state.weather.coordinates.lat = data.coord.lat;
-    },
-    SET_WEATHER_COORDINATES_PENDING(state, bool) {
-      state.weather.coordinates.pending = bool;
-    },
-    SET_WEATHER_COORDINATES_STATUS(state, bool) {
-      state.weather.coordinates.status = bool;
-    },
-    SET_WEATHER_COORDINATES_NAME(state, data) {
-      state.weather.coordinates.name = data.name;
-    },
-    SET_WEATHER_CITY_PENDING(state, bool) {
-      state.weather.city.pending = bool;
-    },
-    SET_WEATHER_CITY_STATUS(state, bool) {
-      state.weather.city.status = bool;
-    },
-    SET_WEATHER_CITY_STATUS(state, bool) {
-      state.weather.city.status = bool;
-    },
-    SET_WEATHER_CITY_STATUS(state, bool) {
-      state.weather.city.status = bool;
+    SET_DATA_BYNAME: (state, data) => (
+      (state.weather.byName.lon = data.coord.lon),
+      (state.weather.byName.lat = data.coord.lat),
+      (state.weather.byName.name = data.name)
+    ),
+    // SET_WEATHER_BYNAME(state, data) {
+
+    // },
+
+    SET_DATA_BYCOORDINATES(state, data) {
+      state.weather.byCoordinates.name = this.state.weather.byName.name;
+      state.weather.byCoordinates.lon = data.lon;
+      state.weather.byCoordinates.lat = data.lat;
+      state.weather.byCoordinates.current = data.current;
+      state.weather.byCoordinates.hourly = data.hourly;
+      state.weather.byCoordinates.daily = data.daily;
     },
   },
   actions: {
-    async getCoordinatesData(context) {
+    async fetchCityCoordinates({ commit }) {
       try {
-        context.commit("SET_WEATHER_COORDINATES_PENDING", true);
-
         await axios
           .get(
-            this.state.COORDINATES_API_URL +
-              "rzeszow" +
+            this.state.BY_NAME_API_URL +
+              this.state.weather.byName.name +
               "&appid=" +
               this.state.apikey,
           )
-          .then(response => {
-            console.log(response.data);
-            context.commit("SET_WEATHER_COORDINATES_DATA", response.data);
-            context.commit("SET_WEATHER_COORDINATES_PENDING", false);
-            context.commit("SET_WEATHER_COORDINATES_STATUS", true);
+          .then(async response => {
+            commit("SET_DATA_BYNAME", response.data);
+            await axios
+              .get(
+                this.state.BY_COORDINATES_API_URL +
+                  "&lat=" +
+                  this.state.weather.byName.lat +
+                  "&lon=" +
+                  this.state.weather.byName.lon +
+                  "&appid=" +
+                  this.state.apikey,
+              )
+              .then(response => {
+                commit("SET_DATA_BYCOORDINATES", response.data);
+              });
           });
       } catch (error) {
         console.log(error);
       }
     },
-
-    async getWeatherData(context) {
-      try {
-        context.commit("");
-      } catch (error) {
-        console.log(error);
-      }
-    },
   },
+
   modules: {},
 });

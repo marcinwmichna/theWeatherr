@@ -42,14 +42,6 @@
 </template>
 <script>
 // import Vuex from "vuex";
-import store from "../store/index";
-export default {
-  store,
-  mounted() {
-    console.log(this.$store.state.weather.coordinates);
-    store.dispatch("getCoordinatesData");
-  },
-};
 </script>
 <style scoped>
 h1,

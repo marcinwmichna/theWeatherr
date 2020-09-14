@@ -7,7 +7,15 @@
     <router-view />
   </div>
 </template>
-
+<script>
+import store from "./store/index";
+export default {
+  store,
+  mounted() {
+    store.dispatch("fetchCityCoordinates");
+  },
+};
+</script>
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap");
 * {
