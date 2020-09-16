@@ -1,9 +1,5 @@
 <template>
   <div class="hero">
-    <div class="hero__localization">
-      <h2>Rzeszow</h2>
-      <h3>Friday, 14 August 2020</h3>
-    </div>
     <div class="hero__weather">
       <div class="hero__day_night_temp_wrap">
         <div class="hero__day_night">
@@ -61,24 +57,11 @@ h5 {
   height: 1.4em;
   align-self: center;
 }
-.hero__localization {
-  margin: auto;
-  max-width: 800px;
-}
-.hero__localization h2 {
-  font-size: 4em;
-  font-weight: 500;
-  margin-bottom: -10px;
-}
-.hero__localization h3 {
-  font-size: 1.2em;
-  font-weight: 400;
-  padding-left: 0.25em;
-}
+
 .hero__weather {
   display: flex;
   /* margin-top: 4em; */
-  margin: 4em auto 0 auto;
+  /* margin: 4em auto 0 auto; */
 }
 .hero__day,
 .hero__night {

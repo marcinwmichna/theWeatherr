@@ -1,56 +1,44 @@
 <template>
   <div class="container">
-    <div class="chart">
-      <line-chart height="150px" />
-    </div>
-    <div class="day">
-      <div class="day__single first">
-        <h4 id="fontSize">MON</h4>
+    <ul class="day">
+      <div v-for="day in days" :key="day.name" class="day__single">
+        <h4>{{ day.name }}</h4>
         <img class="image_days" src="../assets/sun.svg" alt />
         <h4>19°C</h4>
       </div>
-      <div class="day__single now">
-        <h4>MON</h4>
-        <img class="image_days" src="../assets/sun.svg" alt />
-        <h4>19°C</h4>
-      </div>
-      <div class="day__single">
-        <h4>MON</h4>
-        <img class="image_days" src="../assets/thunder_days.svg" alt />
-        <h4>19°C</h4>
-      </div>
-      <div class="day__single">
-        <h4>MON</h4>
-        <img class="image_days" src="../assets/rain_days.svg" alt />
-        <h4>19°C</h4>
-      </div>
-      <div class="day__single last">
-        <h4 ref="test">MON</h4>
-        <img class="image_days" src="../assets/sun_clouds_days.svg" alt />
-        <h4>19°C</h4>
-      </div>
-    </div>
+    </ul>
   </div>
 </template>
 <script>
-import LineChart from "@/components/LineChart";
+import store from "@/store/index.js";
 
 export default {
-  components: {
-    LineChart,
+  store,
+  props: {
+    name: String,
+  },
+  data() {
+    return {
+      days: [
+        { name: this.$store.state.weather.byCoordinates.name },
+        { name: "sd2" },
+        { name: "sd3" },
+        { name: "sd4" },
+        { name: "sd5" },
+        { name: "sd6" },
+      ],
+    };
+  },
+  mounted() {
+    console.log(this.$store.state.weather.byCoordinates.daily);
   },
 };
 </script>
 <style scoped>
-.chart {
-  margin: auto;
-  position: relative;
-  max-width: 800px;
-}
 .day {
   justify-content: space-between;
   max-width: 800px;
-  margin: 2em auto auto auto;
+  /* margin: 2em auto auto auto; */
   display: flex;
 }
 
@@ -81,5 +69,23 @@ export default {
   margin: 0 auto;
   justify-self: center;
   align-self: center;
+}
+@media only screen and (min-width: 1200px) {
+  .day {
+    display: block;
+    align-items: center;
+    align-content: center;
+  }
+  .day__single {
+    display: flex;
+    padding: 1em;
+  }
+  .day__single h4 {
+    padding: 0 1em;
+  }
+  .container {
+    margin: auto;
+    align-self: center;
+  }
 }
 </style>

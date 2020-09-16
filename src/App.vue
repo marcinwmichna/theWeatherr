@@ -1,9 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>-->
     <router-view />
   </div>
 </template>
@@ -32,7 +28,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   // color: #2c3e50;
   opacity: 80%;
-  padding: 1em;
+  // padding: 1em;
   font-size: 14px;
   height: 100%;
   // min-height: 100vh;
@@ -44,12 +40,13 @@ body {
     font-size: 18px;
   }
 }
-@media (min-width: 768px) {
-  #app {
-    font-size: 20px;
-    padding: 0;
-  }
-}
+
+// @media (min-width: 768px) {
+//   #app {
+//     // font-size: 20px;
+//     // padding: 0;
+//   }
+// }
 // #nav {
 //   padding: 30px;
 

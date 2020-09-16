@@ -19,8 +19,8 @@ export default new Vuex.Store({
         lat: null,
         name: null,
         current: {},
-        hourly: [{}],
-        daily: [{}],
+        hourly: [],
+        daily: null,
       },
       byName: {
         name: "rzeszow",
@@ -71,6 +71,7 @@ export default new Vuex.Store({
                   this.state.apikey,
               )
               .then(response => {
+                console.log(response.data);
                 commit("SET_DATA_BYCOORDINATES", response.data);
               });
           });
