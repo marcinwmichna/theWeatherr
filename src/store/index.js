@@ -15,6 +15,8 @@ export default new Vuex.Store({
     apikey: process.env.VUE_APP_API_KEY,
     weather: {
       byCoordinates: {
+        status: false,
+        pending: false,
         lon: null,
         lat: null,
         name: null,
@@ -35,9 +37,11 @@ export default new Vuex.Store({
       (state.weather.byName.lat = data.coord.lat),
       (state.weather.byName.name = data.name)
     ),
-    // SET_WEATHER_BYNAME(state, data) {
+    SET_DATA_STATUS: (state, bool) =>
+      (state.weather.byCoordinates.status = bool),
 
-    // },
+    SET_DATA_PENDING: (state, bool) =>
+      (state.weather.byCoordinates.pending = bool),
 
     SET_DATA_BYCOORDINATES(state, data) {
       state.weather.byCoordinates.name = this.state.weather.byName.name;
@@ -51,6 +55,7 @@ export default new Vuex.Store({
   actions: {
     async fetchCityCoordinates({ commit }) {
       try {
+        commit("SET_DATA_PENDING", true);
         await axios
           .get(
             this.state.BY_NAME_API_URL +
@@ -73,9 +78,11 @@ export default new Vuex.Store({
               .then(response => {
                 console.log(response.data);
                 commit("SET_DATA_BYCOORDINATES", response.data);
+                commit("SET_DATA_STATUS", true);
               });
           });
       } catch (error) {
+        commit("SET_DATA_PENDING", false);
         console.log(error);
       }
     },
