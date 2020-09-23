@@ -21,11 +21,11 @@ export default {
     return {
       days: [
         { name: this.$store.state.weather.byCoordinates.name },
-        { name: "sd2" },
-        { name: "sd3" },
-        { name: "sd4" },
-        { name: "sd5" },
-        { name: "sd6" },
+        { name: this.$store.state.weather.byCoordinates.name },
+        { name: this.$store.state.weather.byCoordinates.name },
+        { name: this.$store.state.weather.byCoordinates.name },
+        { name: this.$store.state.weather.byCoordinates.name },
+        { name: this.$store.state.weather.byCoordinates.name },
       ],
     };
   },
