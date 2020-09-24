@@ -60,8 +60,6 @@ h5 {
 
 .hero__weather {
   display: flex;
-  /* margin-top: 4em; */
-  /* margin: 4em auto 0 auto; */
 }
 .hero__day,
 .hero__night {
@@ -87,7 +85,6 @@ h5 {
   font-size: 5.5em;
   justify-content: flex-end;
   margin: 0 1.5rem;
-  /* padding-left: 0.2em; */
   margin-bottom: -0.35em;
 }
 .hero__temp h2 {

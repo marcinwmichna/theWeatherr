@@ -38,21 +38,16 @@ export default {
 .day {
   justify-content: space-between;
   max-width: 800px;
-  /* margin: 2em auto auto auto; */
   display: flex;
 }
 
 .day__single {
-  /* padding: 1em; */
   padding: 1em;
-  /* margin: 0 auto; */
-  /* background-color: #fceece; */
 }
 .day__single h4 {
   margin: 0.8em 0;
 }
 .now {
-  /* border: 1px solid black; */
   background-color: #fceece;
   border-radius: 20px;
 }
