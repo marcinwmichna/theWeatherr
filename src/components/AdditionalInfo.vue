@@ -1,8 +1,12 @@
 <template>
   <div class="container">
     <ul class="day">
-      <div v-for="day in days" :key="day.name" class="day__single">
-        <h4>{{ day.name }}</h4>
+      <div
+        v-for="day in dataByCoordinates.daily"
+        :key="day.name"
+        class="day__single"
+      >
+        <h4>{{ day.dt }}</h4>
         <img class="image_days" src="../assets/sun.svg" alt />
         <h4>19°C</h4>
       </div>
@@ -11,6 +15,7 @@
 </template>
 <script>
 import store from "@/store/index.js";
+import { mapGetters } from "vuex";
 
 export default {
   store,
@@ -19,18 +24,15 @@ export default {
   },
   data() {
     return {
-      days: [
-        { name: this.$store.state.weather.byCoordinates.name },
-        { name: this.$store.state.weather.byCoordinates.name },
-        { name: this.$store.state.weather.byCoordinates.name },
-        { name: this.$store.state.weather.byCoordinates.name },
-        { name: this.$store.state.weather.byCoordinates.name },
-        { name: this.$store.state.weather.byCoordinates.name },
-      ],
+      // days: [{ name: this.$store.state.weather.byCoordinates.name }],
     };
   },
   mounted() {
-    console.log(this.$store.state.weather.byCoordinates.daily);
+    console.log(this.dataByCoordinates.daily);
+    // console.log(this.$store.state.weather.byCoordinates);
+  },
+  computed: {
+    ...mapGetters(["dataByCoordinates"]),
   },
 };
 </script>

@@ -22,7 +22,7 @@ export default new Vuex.Store({
         name: null,
         current: {},
         hourly: [],
-        daily: null,
+        daily: [],
       },
       byName: {
         name: "rzeszow",
@@ -59,21 +59,21 @@ export default new Vuex.Store({
         await axios
           .get(
             this.state.BY_NAME_API_URL +
-              this.state.weather.byName.name +
-              "&appid=" +
-              this.state.apikey,
+            this.state.weather.byName.name +
+            "&appid=" +
+            this.state.apikey,
           )
           .then(async response => {
             commit("SET_DATA_BYNAME", response.data);
             await axios
               .get(
                 this.state.BY_COORDINATES_API_URL +
-                  "&lat=" +
-                  this.state.weather.byName.lat +
-                  "&lon=" +
-                  this.state.weather.byName.lon +
-                  "&appid=" +
-                  this.state.apikey,
+                "&lat=" +
+                this.state.weather.byName.lat +
+                "&lon=" +
+                this.state.weather.byName.lon +
+                "&appid=" +
+                this.state.apikey,
               )
               .then(response => {
                 console.log(response.data);
@@ -83,10 +83,22 @@ export default new Vuex.Store({
           });
       } catch (error) {
         commit("SET_DATA_PENDING", false);
+        commit("SET_DATA_STATUS", false);
+
         console.log(error);
       }
     },
+    getDayFromUNIXDate(UNIX_date) {
+      var date = new Date(UNIX_date * 1000);
+      return date.getDay()
+    }
   },
 
   modules: {},
+  getters: {
+    dataByCoordinates: state => {
+      return state.weather.byCoordinates
+    }
+  }
+
 });
