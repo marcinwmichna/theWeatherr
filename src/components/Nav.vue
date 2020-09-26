@@ -1,11 +1,57 @@
 <template>
   <div class="hero__localization">
-    <h2>Rzeszow</h2>
-    <h3>Friday, 14 August 2020</h3>
+    <h2>{{ dataByCoordinates.name }}</h2>
+    <h3>{{ getFullDate(dataByCoordinates.current.dt) }}</h3>
   </div>
 </template>
 <script>
-export default {};
+import store from "@/store/index.js";
+import { mapGetters } from "vuex";
+
+export default {
+  store,
+  data() {
+    return {
+      days: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      months: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
+    };
+  },
+  methods: {
+    getFullDate(unixDate) {
+      var date = new Date(unixDate * 1000);
+      var dayOfWeek = this.days[date.getDay() - 1];
+      var dayOfMonth = date.getDate();
+      var month = this.months[date.getMonth()];
+      var year = date.getFullYear();
+      var fullDate = dayOfWeek + ", " + dayOfMonth + " " + month + " " + year;
+      return fullDate;
+    },
+  },
+  computed: {
+    ...mapGetters(["dataByCoordinates"]),
+  },
+};
 </script>
 <style scoped>
 h2,

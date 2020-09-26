@@ -6,7 +6,7 @@
         <Hero></Hero>
         <!-- <LineChart></LineChart> -->
       </div>
-      <AdditionalInfo></AdditionalInfo>
+      <WeekDays></WeekDays>
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@
 // @ is an alias to /src
 import Hero from "@/components/Hero.vue";
 // import LineChart from "@/components/LineChart.vue";
-import AdditionalInfo from "@/components/AdditionalInfo.vue";
+import WeekDays from "@/components/WeekDays.vue";
 import Nav from "@/components/Nav.vue";
 
 export default {
@@ -23,8 +23,7 @@ export default {
   components: {
     Nav,
     Hero,
-    AdditionalInfo,
-    // LineChart,
+    WeekDays,
   },
 };
 </script>
@@ -34,6 +33,7 @@ export default {
   margin: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .wrap {
   display: flex;
@@ -44,6 +44,11 @@ export default {
   margin: auto;
   position: relative;
   max-width: 800px;
+}
+@media screen and (min-width: 768px) {
+  .home {
+    margin-top: 5rem;
+  }
 }
 @media screen and (min-width: 1200px) {
   .wrap {

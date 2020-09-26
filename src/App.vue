@@ -26,37 +26,15 @@ body {
   font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // color: #2c3e50;
   opacity: 80%;
-  // padding: 1em;
   font-size: 14px;
   height: 100%;
-  // min-height: 100vh;
-  // width: 100vw;
   min-width: 260px;
+  justify-self: center;
 }
 @media (min-width: 576px) {
   #app {
     font-size: 18px;
   }
 }
-
-// @media (min-width: 768px) {
-//   #app {
-//     // font-size: 20px;
-//     // padding: 0;
-//   }
-// }
-// #nav {
-//   padding: 30px;
-
-//   a {
-//     font-weight: bold;
-//     color: #2c3e50;
-
-//     &.router-link-exact-active {
-//       color: #42b983;
-//     }
-//   }
-// }
 </style>

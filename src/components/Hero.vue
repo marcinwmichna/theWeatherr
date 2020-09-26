@@ -4,17 +4,17 @@
       <div class="hero__day_night_temp_wrap">
         <div class="hero__day_night">
           <div class="hero__day">
-            <h4>32°C</h4>
+            <h4>{{ Math.floor(dataByCoordinates.daily[0].temp.max) }}°C</h4>
             <img src="../assets/sun.svg" alt />
           </div>
           <div class="hero__night">
-            <h4>19°C</h4>
+            <h4>{{ Math.floor(dataByCoordinates.daily[0].temp.night) }}°C</h4>
             <img src="../assets/moon.svg" alt />
           </div>
         </div>
         <div class="hero__temp">
-          <h1>28°C</h1>
-          <h2>Sunny</h2>
+          <h1>{{ Math.floor(dataByCoordinates.current.feels_like) }}°C</h1>
+          <h2>{{ dataByCoordinates.current.weather[0].main }}</h2>
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
       <div class="hero__additional_wrap">
         <div class="hero__wind">
           <img src="../assets/wind.svg" alt />
-          <h4>10km/h</h4>
+          <h4>{{ dataByCoordinates.current.wind_speed }} km/h</h4>
         </div>
         <div class="hero__rain">
           <img src="../assets/umbrella.svg" alt />
@@ -37,7 +37,17 @@
   </div>
 </template>
 <script>
-// import Vuex from "vuex";
+import { mapGetters } from "vuex";
+// import store from "@/store/index.js";
+
+export default {
+  // mounted() {
+  //   console.log(this.dataByCoordinates.current.weather.main);
+  // },
+  computed: {
+    ...mapGetters(["dataByCoordinates"]),
+  },
+};
 </script>
 <style scoped>
 h1,
@@ -111,10 +121,23 @@ h5 {
 .hero__rain,
 .hero__humidity {
   padding: 1em 2em;
+  display: flex;
+  flex-direction: column;
+}
+.hero__wind img {
+  margin: auto;
+}
+.hero__wind h4 {
+  white-space: nowrap;
 }
 @media (min-width: 376px) {
   .hero__temp h1 {
-    font-size: 8em;
+    font-size: 6rem;
+  }
+}
+@media (min-width: 1200px) {
+  .hero {
+    padding-right: 3rem;
   }
 }
 </style>
