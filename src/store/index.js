@@ -30,6 +30,9 @@ export default new Vuex.Store({
         lat: null,
       },
     },
+    weatherImgs: {
+
+    }
   },
   mutations: {
     SET_DATA_BYNAME: (state, data) => (

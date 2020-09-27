@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="hero__temp">
-          <h1>{{ Math.floor(dataByCoordinates.current.feels_like) }}°C</h1>
+          <h1>{{ Math.floor(dataByCoordinates.current.temp) }}°C</h1>
           <h2>{{ dataByCoordinates.current.weather[0].main }}</h2>
         </div>
       </div>
@@ -26,11 +26,11 @@
         </div>
         <div class="hero__rain">
           <img src="../assets/umbrella.svg" alt />
-          <h4>0%</h4>
+          <h4>{{ dataByCoordinates.hourly[0].pop * 100 }}%</h4>
         </div>
         <div class="hero__humidity">
           <img src="../assets/humidity.svg" alt />
-          <h4>50%</h4>
+          <h4>{{ dataByCoordinates.hourly[0].humidity }}%</h4>
         </div>
       </div>
     </div>

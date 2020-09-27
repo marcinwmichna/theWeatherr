@@ -5,6 +5,7 @@
       <div>
         <Hero></Hero>
         <!-- <LineChart></LineChart> -->
+        <Hours></Hours>
       </div>
       <WeekDays></WeekDays>
     </div>
@@ -17,6 +18,7 @@ import Hero from "@/components/Hero.vue";
 // import LineChart from "@/components/LineChart.vue";
 import WeekDays from "@/components/WeekDays.vue";
 import Nav from "@/components/Nav.vue";
+import Hours from "@/components/Hours.vue";
 
 export default {
   name: "Home",
@@ -24,6 +26,8 @@ export default {
     Nav,
     Hero,
     WeekDays,
+    Hours,
+    // LineChart,
   },
 };
 </script>

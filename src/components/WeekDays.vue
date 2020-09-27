@@ -14,9 +14,15 @@
           <h4 class="weekDay" v-else>
             {{ days[getDayOfWeek(dataByCoordinates.daily[index].dt)] }}
           </h4>
-          <img class="image_days" src="../assets/sun.svg" alt />
+          <img
+            class="image_days"
+            :src="
+              `http://openweathermap.org/img/wn/${dataByCoordinates.daily[index].weather[0].icon}@2x.png`
+            "
+            alt
+          />
           <h4 class="temp">
-            {{ Math.floor(dataByCoordinates.daily[index].temp.day) }} °C
+            {{ Math.floor(dataByCoordinates.daily[index].temp.max) }}°
           </h4>
         </div>
       </div>
@@ -57,8 +63,7 @@ export default {
   justify-content: space-between;
   max-width: 1000px;
   display: flex;
-  overflow-x: hidden;
-  /* flex-wrap: nowrap; */
+  /* overflow-x: hidden; */
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -82,10 +87,14 @@ export default {
   background-color: #fceece;
   border-radius: 20px;
 }
-
+.--current {
+  /* border: 1px solid #8a867d; */
+  border-radius: 20px;
+  background-color: #fceece;
+}
 .image_days {
-  width: 31px;
-  height: 31px;
+  width: 60px;
+  height: 60px;
   display: flex;
   margin: 0 auto;
   justify-self: center;
@@ -122,10 +131,6 @@ export default {
   .container {
     margin: auto;
     align-self: center;
-  }
-  .--current {
-    border: 1px solid #8a867d;
-    border-radius: 20px;
   }
 }
 </style>
