@@ -4,7 +4,6 @@
     <div class="wrap">
       <div>
         <Hero></Hero>
-        <!-- <LineChart></LineChart> -->
         <Hours></Hours>
       </div>
       <WeekDays></WeekDays>
@@ -15,7 +14,6 @@
 <script>
 // @ is an alias to /src
 import Hero from "@/components/Hero.vue";
-// import LineChart from "@/components/LineChart.vue";
 import WeekDays from "@/components/WeekDays.vue";
 import Nav from "@/components/Nav.vue";
 import Hours from "@/components/Hours.vue";
@@ -27,7 +25,6 @@ export default {
     Hero,
     WeekDays,
     Hours,
-    // LineChart,
   },
 };
 </script>

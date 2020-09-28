@@ -38,12 +38,8 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-// import store from "@/store/index.js";
 
 export default {
-  // mounted() {
-  //   console.log(this.dataByCoordinates.current.weather.main);
-  // },
   computed: {
     ...mapGetters(["dataByCoordinates"]),
   },

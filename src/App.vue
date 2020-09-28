@@ -20,7 +20,6 @@ export default {
   padding: 0;
 }
 body {
-  // background-color: #fbf4e4;
   background-color: #fefefe;
 }
 #app {

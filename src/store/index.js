@@ -68,7 +68,6 @@ export default new Vuex.Store({
             this.state.apikey,
           )
           .then(async response => {
-            console.log("zwykle api call: ", response.data)
             commit("SET_DATA_BYNAME", response.data);
             await axios
               .get(
@@ -82,7 +81,6 @@ export default new Vuex.Store({
                 this.state.apikey,
               )
               .then(response => {
-                console.log("TEST", response.data);
                 commit("SET_DATA_BYCOORDINATES", response.data);
                 commit("SET_DATA_STATUS", true);
               });
@@ -94,14 +92,7 @@ export default new Vuex.Store({
         console.log(error);
       }
     },
-    // getDayFromUNIXDate(UNIX_date) {
-    //   var date = new Date(UNIX_date * 1000);
-    //   return date.getDay()
-    // },
-    // fullDateFromUNIXDate(UNIX_date){
-    //   var data = new Date(UNIX_date*1000);
 
-    // }
   },
 
   modules: {},

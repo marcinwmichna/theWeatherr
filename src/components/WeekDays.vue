@@ -49,10 +49,6 @@ export default {
       return date.getDay();
     },
   },
-  mounted() {
-    // console.log(this.dataByCoordinates.daily);
-    // console.log(this.$store.state.weather.byCoordinates);
-  },
   computed: {
     ...mapGetters(["dataByCoordinates"]),
   },
@@ -63,7 +59,6 @@ export default {
   justify-content: space-between;
   max-width: 1000px;
   display: flex;
-  /* overflow-x: hidden; */
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -90,7 +85,6 @@ export default {
 .--current {
   border: 1px solid #8a867d;
   border-radius: 20px;
-  /* background-color: #fceece; */
 }
 .image_days {
   width: 60px;

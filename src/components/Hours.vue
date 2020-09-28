@@ -51,7 +51,6 @@ export default {
 .container ul {
   justify-content: space-between;
   max-width: 1000px;
-  /* overflow-x: hidden; */
   display: flex;
   overflow-x: auto;
   margin-bottom: 1em;
@@ -69,7 +68,6 @@ export default {
 .--current {
   border: 1px solid #8a867d;
   border-radius: 20px;
-  /* background-color: #fceece; */
 }
 .temperature,
 .hour {
@@ -82,7 +80,6 @@ export default {
     margin-top: 4rem;
   }
   .hourItem {
-    /* margin: 0 0.1rem; */
     margin: 0;
     padding: 0.6rem;
   }
