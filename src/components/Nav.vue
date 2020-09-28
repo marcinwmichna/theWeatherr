@@ -1,7 +1,7 @@
 <template>
   <div class="hero__localization">
     <h2>{{ dataByCoordinates.name }}</h2>
-    <h3 v-if="dataByCoordinates.status">
+    <h3>
       {{ getFullDate(dataByCoordinates.current.dt) }}
     </h3>
   </div>

@@ -4,23 +4,17 @@
       <div class="hero__day_night_temp_wrap">
         <div class="hero__day_night">
           <div class="hero__day">
-            <h4 v-if="dataByCoordinates.status">
-              {{ Math.floor(dataByCoordinates.daily[0].temp.max) }}°C
-            </h4>
+            <h4>{{ Math.floor(dataByCoordinates.daily[0].temp.max) }}°C</h4>
             <img src="../assets/sun.svg" alt />
           </div>
           <div class="hero__night">
-            <h4 v-if="dataByCoordinates.status">
-              {{ Math.floor(dataByCoordinates.daily[0].temp.night) }}°C
-            </h4>
+            <h4>{{ Math.floor(dataByCoordinates.daily[0].temp.night) }}°C</h4>
             <img src="../assets/moon.svg" alt />
           </div>
         </div>
         <div class="hero__temp">
-          <h1 v-if="dataByCoordinates.status">
-            {{ Math.floor(dataByCoordinates.current.temp) }}°C
-          </h1>
-          <h2 v-if="dataByCoordinates.status">
+          <h1>{{ Math.floor(dataByCoordinates.current.temp) }}°C</h1>
+          <h2>
             {{ dataByCoordinates.current.weather[0].main }}
           </h2>
         </div>
@@ -30,21 +24,15 @@
       <div class="hero__additional_wrap">
         <div class="hero__wind">
           <img src="../assets/wind.svg" alt />
-          <h4 v-if="dataByCoordinates.status">
-            {{ dataByCoordinates.current.wind_speed }} km/h
-          </h4>
+          <h4>{{ dataByCoordinates.current.wind_speed }} km/h</h4>
         </div>
         <div class="hero__rain">
           <img src="../assets/umbrella.svg" alt />
-          <h4 v-if="dataByCoordinates.status">
-            {{ dataByCoordinates.hourly[0].pop * 100 }}%
-          </h4>
+          <h4>{{ dataByCoordinates.hourly[0].pop * 100 }}%</h4>
         </div>
         <div class="hero__humidity">
           <img src="../assets/humidity.svg" alt />
-          <h4 v-if="dataByCoordinates.status">
-            {{ dataByCoordinates.hourly[0].humidity }}%
-          </h4>
+          <h4>{{ dataByCoordinates.hourly[0].humidity }}%</h4>
         </div>
       </div>
     </div>

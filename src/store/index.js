@@ -12,7 +12,7 @@ export default new Vuex.Store({
     BY_NAME_API_URL: "https://api.openweathermap.org/data/2.5/weather?q=",
     BY_COORDINATES_API_URL:
       "https://api.openweathermap.org/data/2.5/onecall?exclude=minutely",
-    apikey: process.env.VUE_APP_API_KEY,
+    apikey: process.env.VUE_APP_APIKEY,
     weather: {
       byCoordinates: {
         status: false,
@@ -20,9 +20,9 @@ export default new Vuex.Store({
         lon: null,
         lat: null,
         name: null,
-        current: null,
-        hourly: null,
-        daily: null,
+        current: '',
+        hourly: '',
+        daily: '',
       },
       byName: {
         name: "rzeszow",
@@ -98,7 +98,7 @@ export default new Vuex.Store({
   modules: {},
   getters: {
     dataByCoordinates: state => {
-      // console.log(state.weather.byCoordinates);
+      console.log(state.weather.byCoordinates);
       return state.weather.byCoordinates
     }
   }
