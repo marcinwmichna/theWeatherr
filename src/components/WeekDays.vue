@@ -88,9 +88,9 @@ export default {
   border-radius: 20px;
 }
 .--current {
-  /* border: 1px solid #8a867d; */
+  border: 1px solid #8a867d;
   border-radius: 20px;
-  background-color: #fceece;
+  /* background-color: #fceece; */
 }
 .image_days {
   width: 60px;

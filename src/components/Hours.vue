@@ -55,7 +55,7 @@ export default {
   display: flex;
   overflow-x: auto;
   margin-bottom: 1em;
-  /* scrollbar-width: thin; */
+  scrollbar-width: none;
 }
 .container ul::-webkit-scrollbar {
   display: none;
@@ -67,9 +67,9 @@ export default {
   margin: 0 0.2rem;
 }
 .--current {
-  /* border: 1px solid #8a867d; */
+  border: 1px solid #8a867d;
   border-radius: 20px;
-  background-color: #fceece;
+  /* background-color: #fceece; */
 }
 .temperature,
 .hour {
@@ -84,7 +84,7 @@ export default {
   .hourItem {
     /* margin: 0 0.1rem; */
     margin: 0;
-    padding: 0.5rem;
+    padding: 0.6rem;
   }
 }
 </style>
