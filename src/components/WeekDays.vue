@@ -17,7 +17,7 @@
           <img
             class="image_days"
             :src="
-              `http://openweathermap.org/img/wn/${dataByCoordinates.daily[index].weather[0].icon}@2x.png`
+              `https://openweathermap.org/img/wn/${dataByCoordinates.daily[index].weather[0].icon}@2x.png`
             "
             alt
           />
