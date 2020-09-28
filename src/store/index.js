@@ -20,9 +20,9 @@ export default new Vuex.Store({
         lon: null,
         lat: null,
         name: null,
-        current: {},
-        hourly: [],
-        daily: [],
+        current: null,
+        hourly: null,
+        daily: null,
       },
       byName: {
         name: "rzeszow",
@@ -98,7 +98,7 @@ export default new Vuex.Store({
   modules: {},
   getters: {
     dataByCoordinates: state => {
-      console.log(state.weather.byCoordinates);
+      // console.log(state.weather.byCoordinates);
       return state.weather.byCoordinates
     }
   }
