@@ -1,5 +1,9 @@
 <template>
-  <div class="hero">
+  <div
+    v-if="dataByCoordinates.status && !dataByCoordinates.pending"
+    class="hero"
+  >
+    {{ dataByCoordinates.status }} && {{ !dataByCoordinates.pending }}
     <div class="hero__weather">
       <div class="hero__day_night_temp_wrap">
         <div class="hero__day_night">
@@ -14,9 +18,7 @@
         </div>
         <div class="hero__temp">
           <h1>{{ Math.floor(dataByCoordinates.current.temp) }}°C</h1>
-          <h2>
-            {{ dataByCoordinates.current.weather[0].main }}
-          </h2>
+          <h2>{{ dataByCoordinates.current.weather[0].main }}</h2>
         </div>
       </div>
     </div>
@@ -37,13 +39,22 @@
       </div>
     </div>
   </div>
-</template>
+</template> 
 <script>
 import { mapGetters } from "vuex";
 
 export default {
   computed: {
     ...mapGetters(["dataByCoordinates"]),
+  },
+  mounted() {
+    // console.log("HERE from component");
+    // console.log(this.dataByCoordinates.daily[0].temp.max);
+    // console.log(
+    //   "status&pending:",
+    //   this.dataByCoordinates.status,
+    //   this.dataByCoordinates.pending,
+    // );
   },
 };
 </script>

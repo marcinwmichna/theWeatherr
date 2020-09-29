@@ -20,9 +20,9 @@ export default new Vuex.Store({
         lon: null,
         lat: null,
         name: null,
-        current: '',
-        hourly: '',
-        daily: '',
+        current: {},
+        hourly: [],
+        daily: [],
       },
       byName: {
         name: "rzeszow",
@@ -82,6 +82,7 @@ export default new Vuex.Store({
               )
               .then(response => {
                 commit("SET_DATA_BYCOORDINATES", response.data);
+                commit("SET_DATA_PENDING", false);
                 commit("SET_DATA_STATUS", true);
               });
           });
@@ -98,7 +99,7 @@ export default new Vuex.Store({
   modules: {},
   getters: {
     dataByCoordinates: state => {
-      console.log(state.weather.byCoordinates);
+      // console.log("HERE from store", state.weather.byCoordinates);
       return state.weather.byCoordinates
     }
   }
