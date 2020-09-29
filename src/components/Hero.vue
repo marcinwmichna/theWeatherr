@@ -3,7 +3,6 @@
     v-if="dataByCoordinates.status && !dataByCoordinates.pending"
     class="hero"
   >
-    {{ dataByCoordinates.status }} && {{ !dataByCoordinates.pending }}
     <div class="hero__weather">
       <div class="hero__day_night_temp_wrap">
         <div class="hero__day_night">
@@ -47,15 +46,6 @@ export default {
   computed: {
     ...mapGetters(["dataByCoordinates"]),
   },
-  mounted() {
-    // console.log("HERE from component");
-    // console.log(this.dataByCoordinates.daily[0].temp.max);
-    // console.log(
-    //   "status&pending:",
-    //   this.dataByCoordinates.status,
-    //   this.dataByCoordinates.pending,
-    // );
-  },
 };
 </script>
 <style scoped>
@@ -90,7 +80,7 @@ h5 {
 .hero__night h4 {
   margin: 0 1rem 0 0;
   font-size: 1.5em;
-  opacity: 80%;
+  opacity: 0.8;
 }
 .hero__day_night {
   align-self: center;
@@ -110,7 +100,7 @@ h5 {
   font-size: 2.5em;
   text-align: center;
   justify-content: flex-end;
-  opacity: 80%;
+  opacity: 0.8;
 }
 .hero__additional {
   display: flex;
@@ -120,7 +110,7 @@ h5 {
   display: flex;
   flex-direction: row;
   margin: auto;
-  opacity: 80%;
+  opacity: 0.8;
 }
 .hero__additional_wrap div h4 {
   text-align: center;
