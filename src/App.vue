@@ -26,7 +26,7 @@ body {
   font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  opacity: 80%;
+  opacity: 0.8;
   font-size: 14px;
   height: 100%;
   min-width: 260px;
