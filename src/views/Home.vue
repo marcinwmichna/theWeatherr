@@ -30,7 +30,7 @@ export default {
 </script>
 <style >
 .home {
-  max-width: 800px;
+  max-width: 850px;
   margin: auto;
   display: flex;
   flex-direction: column;

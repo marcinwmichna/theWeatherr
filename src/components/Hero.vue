@@ -29,7 +29,7 @@
         </div>
         <div class="hero__rain">
           <img src="../assets/umbrella.svg" alt />
-          <h4>{{ dataByCoordinates.hourly[0].pop * 100 }}%</h4>
+          <h4>{{ (dataByCoordinates.hourly[0].pop * 100).toFixed(0) }}%</h4>
         </div>
         <div class="hero__humidity">
           <img src="../assets/humidity.svg" alt />

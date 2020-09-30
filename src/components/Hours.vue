@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <ul>
+    <ul v-dragscroll>
       <li
         v-for="(hour, index) in dataByCoordinates.hourly"
         :key="hour.dt"
@@ -27,7 +27,12 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+import { dragscroll } from "vue-dragscroll";
+
 export default {
+  directives: {
+    dragscroll,
+  },
   computed: {
     ...mapGetters(["dataByCoordinates"]),
   },
@@ -55,6 +60,9 @@ export default {
   overflow-x: auto;
   margin-bottom: 1em;
   scrollbar-width: none;
+}
+.container ul:hover {
+  cursor: pointer;
 }
 .container ul::-webkit-scrollbar {
   display: none;

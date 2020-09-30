@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <ul class="day">
+    <ul v-dragscroll class="day">
       <div
         v-for="(day, index) in dataByCoordinates.daily"
         :key="day.dt"
@@ -32,11 +32,15 @@
 <script>
 import store from "@/store/index.js";
 import { mapGetters } from "vuex";
+import { dragscroll } from "vue-dragscroll";
 
 export default {
   store,
   props: {
     name: String,
+  },
+  directives: {
+    dragscroll,
   },
   data() {
     return {
@@ -93,6 +97,12 @@ export default {
   margin: 0 auto;
   justify-self: center;
   align-self: center;
+}
+
+@media (max-width: 768px) {
+  .container ul:hover {
+    cursor: pointer;
+  }
 }
 @media only screen and (min-width: 1200px) {
   .day {

@@ -1,6 +1,8 @@
 <template>
   <div class="hero__localization">
-    <h2>{{ dataByCoordinates.name }}</h2>
+    <h2 contenteditable="false" spellcheck="false">
+      {{ dataByCoordinates.name }}
+    </h2>
     <h3>
       {{ getFullDate(dataByCoordinates.current.dt) }}
     </h3>
@@ -65,6 +67,9 @@ h3 {
   padding: 1rem;
 }
 .hero__localization h2 {
+  outline-width: 0;
+
+  width: fit-content;
   font-size: 3em;
   font-weight: 500;
   margin-bottom: -10px;
