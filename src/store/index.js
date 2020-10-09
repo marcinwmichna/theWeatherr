@@ -99,7 +99,6 @@ export default new Vuex.Store({
   modules: {},
   getters: {
     dataByCoordinates: state => {
-      // console.log("HERE from store", state.weather.byCoordinates);
       return state.weather.byCoordinates
     }
   }
